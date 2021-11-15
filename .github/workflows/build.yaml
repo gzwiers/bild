@@ -55,13 +55,8 @@ jobs:
     steps:
     - name: release linux
       run: make release-x64
-    # uses: actions/upload-artifact@v2
-    #     with:
-    #       name: dist-without-markdown
-    #       path: |
-    #         dist
-    #         !dist/**/*.md
-    - uses: "marvinpinto/action-automatic-releases@latest"
+    - name: auto release
+      uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
